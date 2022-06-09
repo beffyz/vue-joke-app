@@ -1,30 +1,42 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view />
+  <section>
+    <AppHeader />
+
+    <div class="container">
+      <nav class="app-nav start-md">
+        <router-link class="app-nav__link" to="/">Names</router-link> |
+        <router-link class="app-nav__link" to="/random-jokes">
+          Jokes
+        </router-link>
+      </nav>
+      <router-view />
+    </div>
+  </section>
 </template>
+
+<script>
+import AppHeader from "@/components/Header/Header";
+
+export default {
+  components: { AppHeader },
+};
+</script>
 
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
 }
 
-nav {
-  padding: 30px;
+.app-nav {
+  margin: 20px 0 20px 0;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+.app-nav__link {
+  text-decoration: none;
+  color: inherit;
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  &:hover {
+    color: lightblue;
   }
 }
 </style>
